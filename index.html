@@ -14,6 +14,17 @@
 		src:  url('fonts/digital-7.ttf') format('truetype');
 	}
 
+	html,
+	body {
+	  margin: 0;
+	  padding: 0;
+	}
+
+	body {
+  height: 100vh;
+  width: 100vw;
+}
+
 	@keyframes colorchange {
 		0% {
 			background: #ff0000;
@@ -48,18 +59,15 @@
 		animation-play-state: running;
 	}
 
-	html, body {
-		height: 100%;
-		margin: 0;
-	}
-
 	.page_centered {
 		width:  100%;
 		height:  100%;
+		display: flex;
 		justify-content: center;
 		text-align: center;
 		align-items: center;
 		position: absolute;
+		flex-direction: column;
 		top: 50%;
 		-ms-transform: translateY(-50%);
 		transform: translateY(-50%);
@@ -68,14 +76,11 @@
 	.before_style {
 		height: 100%;
 		background: white;
-		display: flex;
-		justify-content: center;
-		text-align: center;
-		align-items: center;
 	}
 
 	.after_style {
 		height: 100%;
+		margin:  0px;
 	}
 
 	.button_before {
@@ -91,7 +96,7 @@
 
 	.button_after {
 		background-color: white;
-		border: none;
+		border: 2px solid #4CAF50;
 		color: #4CAF50;
 		padding: 15px 32px;
 		text-decoration: none;
@@ -112,7 +117,20 @@
 		color:  white;
 	}
 
-	.message_text {
+	.message_before {
+		color:  black;
+		position: absolute;
+		font-size: 300%;
+		font-family: 'Josefin Sans', 
+		sans-serif;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		bottom: 10px; 
+		text-decoration: none;
+	}
+
+	.message_after {
 		color:  white;
 		position: absolute;
 		font-size: 300%;
@@ -120,10 +138,9 @@
 		sans-serif;
 		width: 100%;
 		display: flex;
-		justify-content: center; // Centers the item
-		bottom: 10px; // Moves it up a little from the bottom
+		justify-content: center;
+		bottom: 10px; 
 		text-decoration: none;
-
 	}
 
 	@keyframes bounce { 
@@ -132,6 +149,8 @@
 }
  
 .bounce {
+	width:  20%;
+	object-fit: contain;
   animation: bounce 0.8s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
@@ -146,6 +165,7 @@
 		<div class="page_centered">
 			<div id="before_clock" class="clock_before"></div>
 			<button id="start_button" class="button_before">TURN 30</button>
+			<div class="message_before" color="black">You are currently: 29</div>
 		</div>
 	</div>
 	<div id="after_birthday" class="rainbow after_style" hidden>
@@ -153,9 +173,9 @@
 		<div class="page_centered">
 			<div id="after_clock" class="clock_after"></div>
 			<button id="revert_button" class="button_after">BACK TO 29</button>
-			<div class="message_text" id="message">Happy birthday, Greddie!<br/>THIRTY<br/>FLIRTY<br/>THRIVING</div>
+			<div class="message_after">Happy birthday, Greddie!<br/>THIRTY<br/>FLIRTY<br/>THRIVING<br/><br/>You are currently: 30</div>
 		</div>
-		<img src="g001.jpg" width=20% height="auto"/>
+		<img src="g001.jpg" class="bounce"/>
 	</div>
 </body>
 <script>
