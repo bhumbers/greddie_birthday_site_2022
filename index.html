@@ -23,6 +23,7 @@
 	body {
 		height: 100vh;
 		width: 100vw;
+		overflow: hidden
 	}
 
 	@keyframes colorchange {
@@ -151,7 +152,8 @@
 	.bounce {
 		width:  20%;
 		object-fit: contain;
-		animation: bounce 0.8s;
+		animation: bounce 1s;
+		animation-delay: 1s;
 		animation-direction: alternate;
 		animation-iteration-count: infinite;
 	}
@@ -268,7 +270,6 @@
 		animation-timing-function: ease-in-out;
 		animation-iteration-count: infinite;
 		animation-duration: 8s;
-		animation-direction: alternate;
 	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

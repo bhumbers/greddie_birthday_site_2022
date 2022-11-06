@@ -25,11 +25,12 @@ function getRandom(min, max) {
 function Particle(parent) {
   this.parent = parent;
   this.id = ''; 
+  margin = 0.05;
   this.x = function() {
-    return getRandom(0, W);
+    return getRandom(W*margin, W*(1-margin));
   };
   this.y = function() {
-    return getRandom(0, H);
+    return getRandom(H*margin, H*(1-margin));
   };
   this.diam = function() {
     return getRandom(_config.minDiameter, _config.maxDiameter);
@@ -49,9 +50,9 @@ Particle.prototype.createNewParticle = function() {
   var newPar = document.createElement('div');
     newPar.setAttribute('id', this.id);
     newPar.setAttribute('class', 'loading-icon');
-    newPar.style.width = newPar.style.height = this.diam() + 'px';
-    newPar.style.left = this.x() + 'px';
-    newPar.style.top = this.y() + 'px';
+    newPar.style.width = newPar.style.height = this.diam() + 'pt';
+    newPar.style.left = this.x() + 'pt';
+    newPar.style.top = this.y() + 'pt';
     return newPar;
 };
 
