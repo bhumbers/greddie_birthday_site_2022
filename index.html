@@ -16,14 +16,14 @@
 
 	html,
 	body {
-	  margin: 0;
-	  padding: 0;
+		margin: 0;
+		padding: 0;
 	}
 
 	body {
-  height: 100vh;
-  width: 100vw;
-}
+		height: 100vh;
+		width: 100vw;
+	}
 
 	@keyframes colorchange {
 		0% {
@@ -106,13 +106,13 @@
 	}
 	
 	.clock_before {
-		font-size: 800%;
+		font-size: 400%;
 		font-family:  digital;
 		color: black;
 	}
 
 	.clock_after {
-		font-size: 800%;
+		font-size: 400%;
 		font-family:  digital;
 		color:  white;
 	}
@@ -120,7 +120,7 @@
 	.message_before {
 		color:  black;
 		position: absolute;
-		font-size: 300%;
+		font-size: 200%;
 		font-family: 'Josefin Sans', 
 		sans-serif;
 		width: 100%;
@@ -133,7 +133,7 @@
 	.message_after {
 		color:  white;
 		position: absolute;
-		font-size: 300%;
+		font-size: 200%;
 		font-family: 'Josefin Sans', 
 		sans-serif;
 		width: 100%;
@@ -144,79 +144,132 @@
 	}
 
 	@keyframes bounce { 
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50px); }
-}
- 
-.bounce {
-	width:  20%;
-	object-fit: contain;
-  animation: bounce 0.8s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-}
+		0% { transform: translateY(0); }
+		100% { transform: translateY(-20px); }
+	}
 
-body {
-  background: #011310;
-  overflow: hidden;
-}
-.loading-icon {
-  position: absolute;
-  vertical-align: middle;
-  border-radius: 50%;
-  background: transparent;
-}
-.loading-icon::before{
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: #1bc2a6;
-  animation: bounce 4s infinite;
-}
-.loading-icon::after{
-  content: "";
-  position: absolute;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: #1bc2a6;
-  animation: bounce2 4s 0.5s infinite;
-}
+	.bounce {
+		width:  20%;
+		object-fit: contain;
+		animation: bounce 0.8s;
+		animation-direction: alternate;
+		animation-iteration-count: infinite;
+	}
 
-@keyframes bounce2 {
-  0% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-    opacity: 1;
-  }
-  90% {
-    transform: scale(2);
-    -webkit-transform: scale(2);
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
+	body {
+		background: #011310;
+		overflow: hidden;
+	}
+	.loading-icon {
+		position: absolute;
+		vertical-align: middle;
+		border-radius: 50%;
+		background: transparent;
+	}
+	.loading-icon::before{
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background: #1bc2a6;
+		animation: bounce 4s infinite;
+	}
+	.loading-icon::after{
+		content: "";
+		position: absolute;
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background: #1bc2a6;
+		animation: bounce2 4s 0.5s infinite;
+	}
 
-@-webkit-keyframes bounce2 {
-  0% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
-    opacity: 1;
-  }
-  90% {
-    transform: scale(2);
-    -webkit-transform: scale(2);
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
+	@keyframes bounce2 {
+		0% {
+			transform: scale(0);
+			-webkit-transform: scale(0);
+			opacity: 1;
+		}
+		90% {
+			transform: scale(2);
+			-webkit-transform: scale(2);
+			opacity: 0;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	@-webkit-keyframes bounce2 {
+		0% {
+			transform: scale(0);
+			-webkit-transform: scale(0);
+			opacity: 1;
+		}
+		90% {
+			transform: scale(2);
+			-webkit-transform: scale(2);
+			opacity: 0;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	#cf4a {
+		position:relative;
+		margin:0 auto;
+	}
+	#cf4a img {
+		position:absolute;
+		left:0;
+		-webkit-transition: opacity 1s ease-in-out;
+		-moz-transition: opacity 1s ease-in-out;
+		-o-transition: opacity 1s ease-in-out;
+		transition: opacity 1s ease-in-out;
+	}
+
+	@keyframes cf4FadeInOut {
+		0% {
+			opacity:1;
+		}
+		17% {
+			opacity:1;
+		}
+		25% {
+			opacity:0;
+		}
+		92% {
+			opacity:0;
+		}
+		100% {
+			opacity:1;
+		}
+	}
+
+	#cf4a img:nth-of-type(1) {
+		animation-delay: 6s;
+	}
+	#cf4a img:nth-of-type(2) {
+		animation-delay: 4s;
+	}
+	#cf4a img:nth-of-type(3) {
+		animation-delay: 2s;
+	}
+	#cf4a img:nth-of-type(4) {
+		animation-delay: 0;
+	}
+
+	#cf4a img {
+		opacity: 0;
+		animation-name: cf4FadeInOut;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+		animation-duration: 10s;
+		animation-direction: alternate;
+	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="particles.js"></script>
@@ -231,13 +284,18 @@ body {
 		</div>
 	</div>
 	<div id="after_birthday" class="rainbow after_style" hidden>
+		<div id="cf4a" class="bounce">
+			<img src="g001.png"/>
+			<img src="g002.png"/>
+			<img src="g003.png"/>
+			<img src="g004.png"/>
+		</div>
 		<div id="circle" class="bouncing_image"></div>
 		<div class="page_centered">
 			<div id="after_clock" class="clock_after"></div>
 			<button id="revert_button" class="button_after">BACK TO 29</button>
 			<div class="message_after">Happy birthday, Greddie!<br/>THIRTY<br/>FLIRTY<br/>THRIVING<br/><br/>You are currently: 30</div>
 		</div>
-		<img src="g001.jpg" class="bounce"/>
 	</div>
 </body>
 <script>
