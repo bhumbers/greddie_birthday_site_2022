@@ -6,8 +6,42 @@
 </head>
 <style>
 	@font-face {
-	  font-family: 'digital';
-	  src:  url('fonts/digital-7.ttf') format('truetype');
+		font-family: 'digital';
+		src:  url('fonts/digital-7.ttf') format('truetype');
+	}
+
+	@keyframes colorchange {
+		0% {
+			background: #ff0000;
+		}
+		14% {
+			background: #ffa500;
+		}
+		28% {
+			background: #ffff00;
+		}
+		42% {
+			background: #008000;
+		}
+		56% {
+			background: #0000ff;
+		}
+		70% {
+			background: #4b0082;
+		}
+		84% {
+			background: #ee82ee;
+		}
+		100% {
+			background: #ff0000;
+		}
+	}
+
+	.rainbow {
+		animation: colorchange 10s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+		animation-play-state: running;
 	}
 
 	html, body {
@@ -26,13 +60,12 @@
 		height: 100%;
 		background: white;
 		display: flex;
-  		justify-content: center;
+		justify-content: center;
 	}
 
 	.after_style {
 		height: 100%;
-		background: black;
-  		justify-content: center;
+		justify-content: center;
 	}
 
 	.button_before {
@@ -41,6 +74,7 @@
 		color: white;
 		padding: 15px 32px;
 		text-align: center;
+		align-items: center;
 		text-decoration: none;
 		font-size: 16px;
 		margin: 4px 2px;
@@ -53,15 +87,23 @@
 		color: #4CAF50;
 		padding: 15px 32px;
 		text-align: center;
+		align-items: center;
 		text-decoration: none;
 		font-size: 16px;
 		margin: 4px 2px;
 		cursor: pointer;
 	}
 	
-	.clock {
+	.clock_before {
 		font-size: 400%;
 		font-family:  digital;
+		color: black;
+	}
+
+	.clock_after {
+		font-size: 400%;
+		font-family:  digital;
+		color:  white;
 	}
 
 	#circle{
@@ -103,14 +145,15 @@
 	<audio id="music" preload="auto" src="turning_30.mp3"></audio>
 	<div id="before_birthday" class="before_style">
 		<div class="page_centered">
-			<div id="before_clock" class="clock"></div>
+			<div id="before_clock" class="clock_before"></div>
 			<button id="start_button" class="button_before">TURN 30</button>
 		</div>
 	</div>
-	<div id="after_birthday" class="after_style" hidden>
+	<div id="after_birthday" class="rainbow after_style" hidden>
 		<div class="page_centered">
-			<div id="after_clock" class="clock"></div>
-			<button id="revert_button" class="button_after">GO BACK</button>
+			<div id="after_clock" class="clock_after"></div>
+			<div i="message">Happy birthday and congratulations, Greddie!</div>
+			<button id="revert_button" class="button_after">BACK TO 29</button>
 			<!-- <div id="circle" class="bounce"><p> your text here</p></div> -->
 		</div>
 	</div>
