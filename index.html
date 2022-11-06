@@ -3,6 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<title>GREDDIE'S TURNING 30</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
+
 </head>
 <style>
 	@font-face {
@@ -50,6 +54,11 @@
 	}
 
 	.page_centered {
+		width:  100%;
+		height:  100%;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
 		position: absolute;
 		top: 50%;
 		-ms-transform: translateY(-50%);
@@ -61,11 +70,12 @@
 		background: white;
 		display: flex;
 		justify-content: center;
+		text-align: center;
+		align-items: center;
 	}
 
 	.after_style {
 		height: 100%;
-		justify-content: center;
 	}
 
 	.button_before {
@@ -73,8 +83,6 @@
 		border: none;
 		color: white;
 		padding: 15px 32px;
-		text-align: center;
-		align-items: center;
 		text-decoration: none;
 		font-size: 16px;
 		margin: 4px 2px;
@@ -86,8 +94,6 @@
 		border: none;
 		color: #4CAF50;
 		padding: 15px 32px;
-		text-align: center;
-		align-items: center;
 		text-decoration: none;
 		font-size: 16px;
 		margin: 4px 2px;
@@ -95,51 +101,44 @@
 	}
 	
 	.clock_before {
-		font-size: 400%;
+		font-size: 800%;
 		font-family:  digital;
 		color: black;
 	}
 
 	.clock_after {
-		font-size: 400%;
+		font-size: 800%;
 		font-family:  digital;
 		color:  white;
 	}
 
-	#circle{
-		width:50px;
-		height:50px;
-		background:red;
-		border-radius:50%;
-		margin-top:100px;
+	.message_text {
+		color:  white;
+		position: absolute;
+		font-size: 300%;
+		font-family: 'Josefin Sans', 
+		sans-serif;
+		width: 100%;
+		display: flex;
+		justify-content: center; // Centers the item
+		bottom: 10px; // Moves it up a little from the bottom
+		text-decoration: none;
+
 	}
-	p{
-		text-align:center;
-		color:yellow;
-	}
-	.bounce{
-		animation:bounce 5s linear 100;
-	}
-	@keyframes bounce{
-		0%{
-			transform:translate(0px,0px);
-		}
-		25%{
-			transform:translate(100px,100px);
-		}
-		50%{
-			transform:translate(200px,0px);  
-			background:green;
-		}
-		75%{
-			transform:translate(100px,-100px);
-		}
-		100%{
-			transform:translate(0px,0px);
-		}   
-	}
+
+	@keyframes bounce { 
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50px); }
+}
+ 
+.bounce {
+  animation: bounce 0.8s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="particles.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 <body onload="initialize()">
 	<audio id="music" preload="auto" src="turning_30.mp3"></audio>
@@ -150,12 +149,13 @@
 		</div>
 	</div>
 	<div id="after_birthday" class="rainbow after_style" hidden>
+		<div id="circle" class="bouncing_image"></div>
 		<div class="page_centered">
 			<div id="after_clock" class="clock_after"></div>
-			<div i="message">Happy birthday and congratulations, Greddie!</div>
 			<button id="revert_button" class="button_after">BACK TO 29</button>
-			<!-- <div id="circle" class="bounce"><p> your text here</p></div> -->
+			<div class="message_text" id="message">Happy birthday, Greddie!<br/>THIRTY<br/>FLIRTY<br/>THRIVING</div>
 		</div>
+		<img src="g001.jpg" width=20% height="auto"/>
 	</div>
 </body>
 <script>
@@ -163,6 +163,7 @@
 		document.getElementById("start_button").addEventListener("click", onStartClick);
 		document.getElementById("revert_button").addEventListener("click", onRevertClick);
 		updateClock();
+		startParticles(document.getElementById("before_birthday"))
 	}
 
 	function onStartClick() {
