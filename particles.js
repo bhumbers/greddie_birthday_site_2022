@@ -58,7 +58,7 @@ Particle.prototype.createNewParticle = function() {
 Particle.prototype.addParticle = function(newPar) {
   var self = this;
     setTimeout(function(){
-      self.parent.appendChild(newPar);
+      self.parent.insertBefore(newPar, self.parent.firstChild);
       self.move();
     }, self.delay());
   return 1;

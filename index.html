@@ -155,6 +155,68 @@
   animation-direction: alternate;
   animation-iteration-count: infinite;
 }
+
+body {
+  background: #011310;
+  overflow: hidden;
+}
+.loading-icon {
+  position: absolute;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: transparent;
+}
+.loading-icon::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #1bc2a6;
+  animation: bounce 4s infinite;
+}
+.loading-icon::after{
+  content: "";
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #1bc2a6;
+  animation: bounce2 4s 0.5s infinite;
+}
+
+@keyframes bounce2 {
+  0% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    opacity: 1;
+  }
+  90% {
+    transform: scale(2);
+    -webkit-transform: scale(2);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes bounce2 {
+  0% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    opacity: 1;
+  }
+  90% {
+    transform: scale(2);
+    -webkit-transform: scale(2);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="particles.js"></script>
@@ -183,7 +245,7 @@
 		document.getElementById("start_button").addEventListener("click", onStartClick);
 		document.getElementById("revert_button").addEventListener("click", onRevertClick);
 		updateClock();
-		startParticles(document.getElementById("before_birthday"))
+		startParticles(document.getElementById("after_birthday"))
 	}
 
 	function onStartClick() {
