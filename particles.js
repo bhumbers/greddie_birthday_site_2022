@@ -1,11 +1,5 @@
-var W = window.innerWidth;
-var H = window.innerHeight;
-
-// Update new screen size when resize
-$( window ).resize(function() {
-  W = window.innerWidth;
-  H = window.innerHeight;
-});
+var W = 100;
+var H = 100;
 
 var particles = [];
 
@@ -14,7 +8,7 @@ var _config = {
   minDelay: 1,
   maxDelay: 60,
   minDiameter: 10,
-  maxDiameter: 240,
+  maxDiameter: 100,
   delayMultiples: 100
 };
 
@@ -25,12 +19,12 @@ function getRandom(min, max) {
 function Particle(parent) {
   this.parent = parent;
   this.id = ''; 
-  margin = 0;
+  margin = 0.5;
   this.x = function() {
-    return getRandom(W*margin, W*(1-margin));
+    return getRandom(-W*margin, W*margin);
   };
   this.y = function() {
-    return getRandom(H*margin, H*(1-margin));
+    return getRandom(-H*margin, H*margin);
   };
   this.diam = function() {
     return getRandom(_config.minDiameter, _config.maxDiameter);

@@ -91,11 +91,13 @@
 	}
 
 	.before_style {
+		width:  100vw;
 		height: 100vh;
 		background: black;
 	}
 
 	.after_style {
+		width:  100vw;
 		height: 100vh;
 		margin:  0px;
 	}
@@ -325,7 +327,7 @@
 		document.getElementById("start_button").addEventListener("click", onStartClick);
 		document.getElementById("revert_button").addEventListener("click", onRevertClick);
 		updateClock();
-		startParticles(document.getElementById("after_birthday"))
+		// startParticles(document.getElementById("after_birthday"))
 	}
 
 	function onStartClick() {
