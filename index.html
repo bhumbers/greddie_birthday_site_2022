@@ -62,8 +62,24 @@
 
 	.page_centered {
 		width:  100%;
+		/*height:  100%;*/
+		display: flex;
+		grid-row-gap: 20pt;
+		justify-content: space-between;
+		text-align: center;
+		align-items: center;
+		position: absolute;
+		flex-direction: column;
+		top: 50%;
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+
+	.page_centered_bottom {
+		width:  100%;
 		height:  100%;
 		display: flex;
+		grid-row-gap: 20pt;
 		justify-content: center;
 		text-align: center;
 		align-items: center;
@@ -145,15 +161,15 @@
 	}
 
 	@keyframes bounce { 
-		0% { transform: translateY(0); }
-		100% { transform: translateY(-20px); }
+		0% { transform: translateY(0pt); }
+		100% { transform: translateY(-20pt); }
 	}
 
 	.bounce {
 		width:  20%;
 		object-fit: contain;
-		animation: bounce 1s;
-		animation-delay: 1s;
+		animation: bounce 0.26s;
+		animation-delay: 0.26s;
 		animation-direction: alternate;
 		animation-iteration-count: infinite;
 	}
@@ -175,7 +191,7 @@
 		height: 100%;
 		border-radius: 50%;
 		background: #1bc2a6;
-		animation: bounce 4s infinite;
+		animation: bounce2 4s infinite;
 	}
 	.loading-icon::after{
 		content: "";
@@ -227,6 +243,7 @@
 	#cf4a img {
 		position:absolute;
 		left:0;
+		top:50pt;
 		-webkit-transition: opacity 1s ease-in-out;
 		-moz-transition: opacity 1s ease-in-out;
 		-o-transition: opacity 1s ease-in-out;
@@ -252,13 +269,13 @@
 	}
 
 	#cf4a img:nth-of-type(1) {
-		animation-delay: 6s;
+		animation-delay: 3s;
 	}
 	#cf4a img:nth-of-type(2) {
-		animation-delay: 4s;
+		animation-delay: 2s;
 	}
 	#cf4a img:nth-of-type(3) {
-		animation-delay: 2s;
+		animation-delay: 1s;
 	}
 	#cf4a img:nth-of-type(4) {
 		animation-delay: 0;
@@ -269,7 +286,7 @@
 		animation-name: cf4FadeInOut;
 		animation-timing-function: ease-in-out;
 		animation-iteration-count: infinite;
-		animation-duration: 8s;
+		animation-duration: 4s;
 	}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -278,10 +295,12 @@
 <body onload="initialize()">
 	<audio id="music" preload="auto" src="turning_30.mp3"></audio>
 	<div id="before_birthday" class="before_style">
+		<div class="page_centered_bottom">
+			<div class="message_before" color="black">You are currently: 29</div>
+		</div>
 		<div class="page_centered">
 			<div id="before_clock" class="clock_before"></div>
 			<button id="start_button" class="button_before">TURN 30</button>
-			<div class="message_before" color="black">You are currently: 29</div>
 		</div>
 	</div>
 	<div id="after_birthday" class="rainbow after_style" hidden>
@@ -292,10 +311,12 @@
 			<img src="g004.png"/>
 		</div>
 		<div id="circle" class="bouncing_image"></div>
+		<div class="page_centered_bottom">
+			<div class="message_after">Happy birthday, Greddie!<br/>THIRTY<br/>FLIRTY<br/>THRIVING<br/><br/>You are currently: 30</div>
+		</div>
 		<div class="page_centered">
 			<div id="after_clock" class="clock_after"></div>
 			<button id="revert_button" class="button_after">BACK TO 29</button>
-			<div class="message_after">Happy birthday, Greddie!<br/>THIRTY<br/>FLIRTY<br/>THRIVING<br/><br/>You are currently: 30</div>
 		</div>
 	</div>
 </body>
@@ -304,7 +325,7 @@
 		document.getElementById("start_button").addEventListener("click", onStartClick);
 		document.getElementById("revert_button").addEventListener("click", onRevertClick);
 		updateClock();
-		startParticles(document.getElementById("after_birthday"))
+		// startParticles(document.getElementById("after_birthday"))
 	}
 
 	function onStartClick() {
