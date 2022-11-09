@@ -25,7 +25,7 @@ function getRandom(min, max) {
 function Particle(parent) {
   this.parent = parent;
   this.id = ''; 
-  margin = 0.05;
+  margin = 0;
   this.x = function() {
     return getRandom(W*margin, W*(1-margin));
   };
